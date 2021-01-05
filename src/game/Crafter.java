@@ -46,7 +46,7 @@ public class Crafter {
     private static boolean eButtonPushed       = false;
     private static boolean F11Pushed           = false;
     private static boolean escapePushed        = false;
-    private static final String versionName = "Crafter Pre-Alpha 0.02b";
+    private static final String versionName = "Crafter Pre-Alpha 0.02b | Oven ModAPI";
 
     public static String getVersionName(){
         return versionName;
