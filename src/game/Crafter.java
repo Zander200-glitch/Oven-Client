@@ -7,6 +7,7 @@ import game.item.ItemEntity;
 import game.tnt.TNTEntity;
 import org.joml.Vector3f;
 import org.lwjgl.openal.AL11;
+import oven.Oven;
 
 import java.awt.*;
 
@@ -67,6 +68,9 @@ public class Crafter {
             initGame();
             startSaveThread();
             databaseConnect();
+            //oven
+            Oven.onStart();
+            //oven
             gameLoop();
 
         } catch ( Exception excp ){
@@ -87,6 +91,8 @@ public class Crafter {
         boolean running = true;
         while(running && !windowShouldClose()){
 
+            Oven.onTickPre();
+
             elapsedTime = timerGetElapsedTime();
             accumulator += elapsedTime;
 
@@ -104,6 +110,8 @@ public class Crafter {
             chunkUpdater();
 
             indexLight();
+
+            Oven.onTickPost();
 
             renderGame();
             windowUpdate();

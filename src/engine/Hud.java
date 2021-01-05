@@ -5,6 +5,7 @@ import engine.graph.Texture;
 import game.item.Item;
 import org.joml.Vector2d;
 import org.joml.Vector3f;
+import oven.Oven;
 
 import java.util.ArrayList;
 
@@ -3046,6 +3047,7 @@ public class Hud {
                     setVSync(!isvSync());
                     toggleVsyncMesh();
                 } else if (pauseButtonSelection == 2){
+                    Oven.onClose();
                     glfwSetWindowShouldClose(getWindowHandle(), true);
                 }
 
