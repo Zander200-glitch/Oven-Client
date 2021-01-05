@@ -395,16 +395,6 @@ public class BlockDefinition {
                 "wood_2"
         );
 
-        //water thing
-        BlockModifier splash = new BlockModifier() {
-            @Override
-            public void onPlace(Vector3f pos) {
-                for(int y = 0; y < 128; y++){
-                    setBlock((int)Math.floor(pos.x), y, (int)Math.floor(pos.z),7, 0);
-                }
-            }
-        };
-
         new BlockDefinition(
                 7,
                 "water",
@@ -419,7 +409,7 @@ public class BlockDefinition {
                 true,
                 false,
                 true,
-                splash,
+                null,
                 "",
                 ""
         );
