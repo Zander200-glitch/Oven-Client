@@ -1,8 +1,8 @@
 package engine;
 
+import oven.OvenOpenData;
+
 import static engine.Window.updateWindowTitle;
-import static game.Crafter.getVersionName;
-import static org.lwjgl.glfw.GLFW.glfwGetTime;
 
 public class Timer {
     private static double lastLoopTime = System.nanoTime();
@@ -35,7 +35,7 @@ public class Timer {
         framesPerSecond++;
         if (elapsedTime >= 1_000_000_000) {
 //            System.out.println("framerate :" +  framesPerSecond);
-            updateWindowTitle(getVersionName() + " | FPS: " + framesPerSecond);
+            updateWindowTitle(OvenOpenData.windowTitle + " | FPS: " + framesPerSecond);
             framesPerSecond = 0;
             elapsedTime = 0;
         }

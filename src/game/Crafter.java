@@ -4,11 +4,11 @@ import engine.sound.SoundListener;
 import game.chunk.Chunk;
 import game.item.ItemDefinition;
 import game.item.ItemEntity;
-import game.player.Inventory;
 import game.tnt.TNTEntity;
 import org.joml.Vector3f;
 import org.lwjgl.openal.AL11;
 import oven.Oven;
+import oven.OvenOpenData;
 
 import java.awt.*;
 
@@ -47,10 +47,14 @@ public class Crafter {
     private static boolean eButtonPushed       = false;
     private static boolean F11Pushed           = false;
     private static boolean escapePushed        = false;
-    private static final String versionName = "Crafter Pre-Alpha 0.02b | Oven ModAPI";
+    private static String ingameNameDisplay = "Crafter Pre-Alpha 0.02b";
+    private static String windowTitle = ingameNameDisplay + " | OvenApi Client";
 
-    public static String getVersionName(){
-        return versionName;
+    public static String getIngameNameDisplay(){
+        return ingameNameDisplay;
+    }
+    public static void updateWindowTitle(String newTitle){
+        OvenOpenData.windowTitle = newTitle;
     }
 
     //core game engine elements
@@ -62,7 +66,7 @@ public class Crafter {
             Toolkit tk = Toolkit.getDefaultToolkit();
             Dimension d = tk.getScreenSize();
 
-            initWindow(versionName, d.width/2,d.height/2,vSync);
+            initWindow(ingameNameDisplay, d.width/2,d.height/2,vSync);
             initRenderer();
             initMouseInput();
             initSoundManager();
@@ -71,6 +75,8 @@ public class Crafter {
             databaseConnect();
             //oven
             Oven.onStart();
+            OvenOpenData.windowTitle = windowTitle;
+            OvenOpenData.versionName = ingameNameDisplay;
             //oven
             gameLoop();
 
