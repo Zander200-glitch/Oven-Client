@@ -4,6 +4,7 @@ import engine.sound.SoundListener;
 import game.chunk.Chunk;
 import game.item.ItemDefinition;
 import game.item.ItemEntity;
+import game.player.Inventory;
 import game.tnt.TNTEntity;
 import org.joml.Vector3f;
 import org.lwjgl.openal.AL11;
